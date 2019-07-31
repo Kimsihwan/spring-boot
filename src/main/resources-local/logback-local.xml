@@ -6,7 +6,7 @@
 	<appender name="SAMPLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 				<!-- 로그 기록시간(년-월-일 시:분:초) 스레드이름 로그 레벨 로거 이름축약 - 메시지 줄바꿈 -->
-				<pattern>sample : [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
+				<pattern>local sample : [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
 				</pattern>
 		</encoder>
 	</appender>
@@ -15,7 +15,7 @@
 	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>			
 				<!-- 로그 기록시간(년-월-일 시:분:초) 스레드이름 로그 레벨 로거 이름축약 - 메시지 줄바꿈 -->
-				<pattern>ROLLING: [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
+				<pattern>local rolling: [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
 				</pattern>			
 		</encoder>
 		<rollingPolicy

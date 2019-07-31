@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <configuration>
-	<property name="LOGS_ABSOLUTE_PATH" value="./log/local" />
+	<property name="LOGS_ABSOLUTE_PATH" value="./log/virtual" />
 
 	<!-- 콘솔에 로그를 찍는 방법 -->
 	<appender name="SAMPLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 				<!-- 로그 기록시간(년-월-일 시:분:초) 스레드이름 로그 레벨 로거 이름축약 - 메시지 줄바꿈 -->
-				<pattern>sample : [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
+				<pattern>virtual sample : [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
 				</pattern>
 		</encoder>
 	</appender>
@@ -15,7 +16,7 @@
 	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>			
 				<!-- 로그 기록시간(년-월-일 시:분:초) 스레드이름 로그 레벨 로거 이름축약 - 메시지 줄바꿈 -->
-				<pattern>ROLLING: [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
+				<pattern>virtual rolling: [%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n
 				</pattern>			
 		</encoder>
 		<rollingPolicy

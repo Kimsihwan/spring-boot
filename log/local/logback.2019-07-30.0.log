@@ -1,0 +1,24 @@
+ROLLING: [2019-07-30 11:26:00:597][main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-0O2V5C8 with PID 4344 (C:\Users\KSH_N01\Desktop\demo\target\classes started by KSH_N01 in C:\Users\KSH_N01\Desktop\demo)
+ROLLING: [2019-07-30 11:26:00:600][main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+ROLLING: [2019-07-30 11:26:00:601][main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+ROLLING: [2019-07-30 11:26:02:2775][main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.639 seconds (JVM running for 4.789)
+ROLLING: [2019-07-30 11:26:29:29509][http-nio-8888-exec-1] DEBUG c.e.d.b.m.BoardMapper.boardList - ==>  Preparing: SELECT * FROM BOARD 
+ROLLING: [2019-07-30 11:26:29:29535][http-nio-8888-exec-1] DEBUG c.e.d.b.m.BoardMapper.boardList - ==> Parameters: 
+ROLLING: [2019-07-30 11:26:29:29569][http-nio-8888-exec-1] DEBUG c.e.d.b.m.BoardMapper.boardList - <==      Total: 20
+ROLLING: [2019-07-30 11:37:43:703935][http-nio-8888-exec-5] DEBUG c.e.d.b.m.BoardMapper.boardList - ==>  Preparing: SELECT * FROM BOARD 
+ROLLING: [2019-07-30 11:37:43:703943][http-nio-8888-exec-5] DEBUG c.e.d.b.m.BoardMapper.boardList - ==> Parameters: 
+ROLLING: [2019-07-30 11:37:43:703952][http-nio-8888-exec-5] DEBUG c.e.d.b.m.BoardMapper.boardList - <==      Total: 20
+ROLLING: [2019-07-30 11:39:50:613][main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-0O2V5C8 with PID 14072 (C:\Users\KSH_N01\Desktop\demo\target\classes started by KSH_N01 in C:\Users\KSH_N01\Desktop\demo)
+ROLLING: [2019-07-30 11:39:50:615][main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+ROLLING: [2019-07-30 11:39:50:616][main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+ROLLING: [2019-07-30 11:39:52:2742][main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.592 seconds (JVM running for 4.744)
+ROLLING: [2019-07-30 11:40:41:545][main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-0O2V5C8 with PID 8256 (C:\Users\KSH_N01\Desktop\demo\target\classes started by KSH_N01 in C:\Users\KSH_N01\Desktop\demo)
+ROLLING: [2019-07-30 11:40:41:548][main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+ROLLING: [2019-07-30 11:40:41:549][main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+ROLLING: [2019-07-30 11:40:43:2751][main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 2.623 seconds (JVM running for 4.736)
+ROLLING: [2019-07-30 11:40:44:3297][http-nio-8888-exec-1] DEBUG c.e.d.b.m.BoardMapper.boardList - ==>  Preparing: SELECT * FROM BOARD 
+ROLLING: [2019-07-30 11:40:44:3332][http-nio-8888-exec-1] DEBUG c.e.d.b.m.BoardMapper.boardList - ==> Parameters: 
+ROLLING: [2019-07-30 11:40:44:3370][http-nio-8888-exec-1] DEBUG c.e.d.b.m.BoardMapper.boardList - <==      Total: 20
+ROLLING: [2019-07-30 11:40:47:6232][http-nio-8888-exec-5] DEBUG c.e.d.b.m.BoardMapper.boardList - ==>  Preparing: SELECT * FROM BOARD 
+ROLLING: [2019-07-30 11:40:47:6234][http-nio-8888-exec-5] DEBUG c.e.d.b.m.BoardMapper.boardList - ==> Parameters: 
+ROLLING: [2019-07-30 11:40:47:6238][http-nio-8888-exec-5] DEBUG c.e.d.b.m.BoardMapper.boardList - <==      Total: 20
