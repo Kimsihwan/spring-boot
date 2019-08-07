@@ -2,13 +2,20 @@ package com.example.demo.board.domain;
 
 import java.util.Date;
 
-public class BoardVO {
-
+public class CommentVO {
+  private int cno;
   private int bno;
-  private String subject;
   private String content;
   private String writer;
   private Date reg_date;
+
+  public int getCno() {
+    return cno;
+  }
+
+  public void setCno(int cno) {
+    this.cno = cno;
+  }
 
   public int getBno() {
     return bno;
@@ -16,14 +23,6 @@ public class BoardVO {
 
   public void setBno(int bno) {
     this.bno = bno;
-  }
-
-  public String getSubject() {
-    return subject;
-  }
-
-  public void setSubject(String subject) {
-    this.subject = subject;
   }
 
   public String getContent() {
@@ -47,9 +46,6 @@ public class BoardVO {
   }
 
   public void setReg_date(Date reg_date) {
-    this.reg_date = reg_date;
+      this.reg_date = reg_date;
   }
-
-
-
 }
