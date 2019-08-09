@@ -31,7 +31,8 @@
 	
 	// 다음 버튼 이벤트
 	function fn_next(page, range, rangeSize) {
-		var page = parseInt((r))adsa
+		var page = parseInt((r))
+		txt
 	}
 </script>
 </head>
