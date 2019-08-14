@@ -6,33 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/list.js"></script>
+<script type="text/javascript" src="/js/pagination.js"></script>
 <title>List</title>
 <script>
-	// 이전 버튼 이벤트
-	function fn_prev(page, range, rangeSize) {
-		var page = ((range - 2) * rangeSize) + 1;
-		var range = range - 1;
-		
-		var url = "${pageContext.request.contextPath}/list";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		
-		location.href = url;
-	}
-	
-	// 페이지 번호 클릭
-	function fn_pagination(page, range, rangeSize, searchType, keyword) {
-		var url = "${pageContext.request.contextPath}/list"; 
-		url = url + "?page=" + page;
-		url = range + "?range=" + range;
-		
-		location.href = url;
-	}
-	
-	// 다음 버튼 이벤트
-	function fn_next(page, range, rangeSize) {
-		sdadsa
-	}
+	var page = '${pagination.page}';
+	var range = '${pagination.range}';
 </script>
 </head>
 <body>
@@ -45,7 +24,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
-						<button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/insert'">
+						<button id="createBtn" type="button" class="btn btn-info btn-sm" data-toggle="modal">
 							<i class="fa fa-edit fa-fw"></i> 게시글 작성
 						</button>
 					</div>
@@ -62,24 +41,32 @@
 									<th>Date</th>
 								</tr>
 							</thead>
-							<tbody>
-								<c:forEach items="${list}" var="l">
-									<tr onclick="location.href='/detail/${l.bno}'">
-										<td>${l.bno}</td>
-										<td>${l.subject}</td>
-										<td>${l.writer}</td>
-										<td>
-											<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${l.reg_date}" />
-										</td>
-									</tr>
-								</c:forEach>
+							<tbody id="tbody">
 							</tbody>
 						</table>
+						<!-- pagination{s} -->
+						<div id="paginationBox">
+							<ul class="pagination">
+								<c:if test="${pagination.prev}">
+									<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a></li>
+								</c:if>
+
+								<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
+									<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a></li>
+								</c:forEach>
+
+								<c:if test="${pagination.next}">
+									<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.range}', '${pagination.range}', '${pagination.rangeSize}')">Next</a></li>
+								</c:if>
+							</ul>
+						</div>
+						<!-- pagination{e} -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<%@ include file="bootstrap.jsp"%>
+	<%@ include file="modal.jsp"%>
 </body>
 </html>

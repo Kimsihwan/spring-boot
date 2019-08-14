@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="boardDetail" parameterType="int" resultType="com.example.demo.board.domain.BoardVO">
 		SELECT
-			*
+			bno, subject, content, writer, reg_date
 		FROM BOARD
 		WHERE
 			BNO = #{bno}

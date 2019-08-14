@@ -20,40 +20,35 @@ public class BoardController {
 	@Autowired
 	BoardService mBoardService;
 
-	@RequestMapping("/")
-	private String index() {
-		return "list";
-	}
-
-	@RequestMapping("/board")
-	private String board() {
-		return "list";
-	}
-
-	@RequestMapping("/home")
-	private String home() {
-		return "home";
-	}
-
-//	@RequestMapping("/data") // 게시판 리스트 화면 호출
-//	@ResponseBody
-//	private List<BoardVO> list(Model model) throws Exception {
-//		return mBoardService.boardListService();
-//	}
-
-	@RequestMapping("/list") // 게시판 리스트 화면 호출
-	private String boardList(Model model, @RequestParam(required = false, defaultValue = "1") int page,
+	@RequestMapping("/get_Board")
+	@ResponseBody
+	private List<BoardVO> boardData(Model model, @RequestParam(required = false, defaultValue = "1") int page,
 			@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
-		
+
 		// 전체 게시글 개수
 		int listCnt = mBoardService.boardCountService();
-		
+
 		// Pagination 객체 생성
 		Pagination pagination = new Pagination();
 		pagination.pageInfo(page, range, listCnt);
 		model.addAttribute("pagination", pagination);
 		model.addAttribute("list", mBoardService.boardListService(pagination));
-		return "list";
+		return mBoardService.boardListService(pagination);
+	}
+
+	@RequestMapping("/list") // 게시판 리스트 화면 호
+	private String boardList(Model model, @RequestParam(required = false, defaultValue = "1") int page,
+			@RequestParam(required = false, defaultValue = "1") int range) throws Exception {
+
+		// 전체 게시글 개수
+		int listCnt = mBoardService.boardCountService();
+
+		// Pagination 객체 생성
+		Pagination pagination = new Pagination();
+		pagination.pageInfo(page, range, listCnt);
+		model.addAttribute("pagination", pagination);
+		model.addAttribute("list", mBoardService.boardListService(pagination));
+		return "list_a";
 	}
 
 	@RequestMapping("/detail/{bno}")
@@ -84,7 +79,7 @@ public class BoardController {
 	@RequestMapping("/update/{bno}") // 게시글 수정폼 호출
 	private String boardUpdateForm(@PathVariable int bno, Model model) throws Exception {
 		model.addAttribute("detail", mBoardService.boardDetailService(bno));
-		return "update";
+		return "boardUpdate";
 	}
 
 	@RequestMapping("/updateProc")

@@ -2,37 +2,52 @@ var action = '';
 var url = '';
 var type = '';
 var bno = 0;
+var startList = '${idx}';
+var listSize = '${pagination.range}';
 
-$(function() {
+$(function() {	
 	CreateBtn();
 	ListLoad();
 	SubmitBtn();
 });
 
+// 페이지 번호 클릭
+function fn_pagination(page, range, rangeSize, searchType, keyword) {
+	var url = "/list";
+	url = url + "?page=" + page;
+	url = url + "&range=" + range;
+
+	location.href = url;
+}
+
 function ListLoad() {
 	// 비동기 통신
 	$.ajax({
 		// URL 선언
-		url : "/data",
+		url : '/get_Board?page=' + page + '&range=' + range,		
 		// GET 선언
-		type : "GET",
+		type : "POST",
+		data : {
+			'bno' : bno
+		},
 		// 오류시 알림창 띄우기
 		error : function() {
 			alert("통신실패!!!!");
 		},
 		// 성공시 매개변수로 result를 받음
 		success : function(result) {
-			// result의 크기만큼 돌려줌
-			for ( var str in result) {
-				// tr 태그를 생성해서 id에 tbody에 추가
-				var tr = $("<tr></tr>").appendTo("#tbody");
-				// tr에 td를 추가 후 내용을 데이터 값
-				$("<td></td>").text(result[str]['bno']).appendTo(tr);
-				$("<td></td>").text(result[str]['subject']).appendTo(tr);
-				$("<td></td>").text(result[str]['writer']).appendTo(tr);
-				$("<td></td>").text(FormatToUnixtime(result[str]['reg_date']))
-						.appendTo(tr);
-			}
+			console.log(result);
+			$("#tbody").children().remove();
+			var a = '';
+			$.each(result, function(key, value) {				
+				a += "<tr onclick=location.href='/detail/" + value.bno + "'>";
+				a += '<td>' + value.bno + '</td>';
+				a += '<td>' + value.subject + '</td>';
+				a += '<td>' + value.writer + '</td>';
+				a += '<td>' + FormatToUnixtime(value.reg_date) + '</td>';
+				a += '</tr>';
+			});
+			$("#tbody").html(a);
 		}
 	});
 };
@@ -73,6 +88,5 @@ function CreateBtn() {
 
 function FormatToUnixtime(unixtime) {
 	var u = new Date(unixtime);
-	return u.getUTCFullYear() + '-' + ('0' + u.getUTCMonth()).slice(-2) + '-'
-			+ ('0' + u.getUTCDate()).slice(-2)
+	return u.getUTCFullYear() + '-' + ('0' + u.getUTCMonth()).slice(-2) + '-' + ('0' + u.getUTCDate()).slice(-2)
 };
